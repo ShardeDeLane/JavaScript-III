@@ -15,19 +15,20 @@
 // Principle 1
 
 // code example for Window Binding
- function WindowGlobal = function () {
-     console.log(this)
+function WindowGlobal = function() {
+    return this
  }
- console.log(windowGlobal())
+ console.log(WindowGlobal())
 
 // Principle 2
 
 // code example for Implicit Binding
-var anObject = function(){
+var AnObject = function() {
     this.hero = hero
     this.faction = faction
 }
-anObject.prototype.greeting = function(){
+
+AnObject.prototype.greeting = function() {
     return(console.log(`${this.hero} says hello`))
 }
 
@@ -35,11 +36,12 @@ anObject.prototype.greeting = function(){
 // Principle 3
 
 // code example for New Binding
-var AnObject = function(){
+var AnObject = function() {
     this.hero = hero
     this.faction = faction
 }
-anObject.prototype.greeting = function(){
+
+AnObject.prototype.greeting = function() {
     return(console.log(`${this.hero} says hello`))
 }
 
@@ -49,17 +51,17 @@ ConstructorObject.greeting()
 // Principle 4
 
 // code example for Explicit Binding
-var jogger = {
+let jogger = {
     name: "John",
     activity: "running"
 }
 
-var callJogger = function(){
+let CallJogger = function() {
     this.name = name
     this.property = property
 }
-callJogger.prototype = function(activity){
+
+CallJogger.prototype = function(activity) {
     console.log(`${this.name} is ${activity}`)
 }
-
-console.log(callJogger.call(jogger, jogger.activity))
+console.log(CallJogger.call(jogger, jogger.activity))
